@@ -31,7 +31,7 @@
     }
 
     input {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       font-size: 1rem;
       padding: 0.4rem 0.6rem;
       border: 1px solid #ccc;
@@ -40,13 +40,13 @@
       text-align: center;
     }
 
-    #display-wrapper {
+    .display-wrapper {
       width: 4in;
       position: relative;
       height: 60px;
     }
 
-    #display {
+    #display, #display2 {
       font-family: 'Krone', serif;
       font-size: 50px;
       white-space: nowrap;
@@ -63,14 +63,17 @@
     <option value="commissioner">Commissioner | Commissaire</option>
     <option value="am">AM | GA</option>
   </select>
-  <input type="text" id="input" placeholder="Type something | Écrivez quelque chose…" oninput="update(this.value)">
-  <div id="display-wrapper">
+  <input type="text" id="input" placeholder="Type something | Écrivez quelque chose…" oninput="update('display', this.value)">
+  <input type="text" id="input2" placeholder="Type something | Écrivez quelque chose…" oninput="update('display2', this.value)">
+  <div class="display-wrapper">
     <span id="display"></span>
+  </div>
+  <div class="display-wrapper">
+    <span id="display2"></span>
   </div>
 
   <script>
     const maxWidth = 4 * 96;
-    const display = document.getElementById('display');
 
     const themes = {
       bod:          { bg: '#4169E1',  text: 'white' },
@@ -81,12 +84,13 @@
     function applyTheme(value) {
       const { bg, text } = themes[value];
       document.body.style.background = bg;
-      display.style.color = text;
+      document.querySelectorAll('#display, #display2').forEach(el => el.style.color = text);
     }
 
     applyTheme('bod');
 
-    function update(text) {
+    function update(id, text) {
+      const display = document.getElementById(id);
       display.textContent = text;
       display.style.transform = 'translateX(-50%)';
       const natural = display.offsetWidth;
