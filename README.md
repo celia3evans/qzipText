@@ -11,7 +11,7 @@ No npm packages are required.
 ## Setup
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/celia3evans/qzipText.git
 cd qzipText
 ```
 
