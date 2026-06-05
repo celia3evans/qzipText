@@ -4,7 +4,7 @@ A minimal web app that displays typed text in the Castle font, constrained to a 
 If the text exceeds that width, characters are scaled horizontally to fit while preserving their height.
 This is how the embroidery for the CFES quarterzips will work this year.
 
-Une application web minimaliste qui affiche le texte saisi dans la police Castle, avec une largeur maximale de 10 cm.
+Une application web minimaliste qui affiche le texte saisi dans la police Castle, avec une largeur maximale de 4 pouces.
 Si le texte dépasse cette largeur, les caractères sont redimensionnés horizontalement pour s'adapter à l'espace disponible, tout en conservant leur hauteur.
 C'est ainsi que fonctionnera la broderie sur les vestes à fermeture éclair quart de longueur de la FCEG cette année.
 
