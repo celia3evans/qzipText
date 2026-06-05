@@ -30,3 +30,7 @@ node server.js
 Then open [http://localhost:7373](http://localhost:7373) in your browser.
 
 Ouvrez ensuite [http://localhost:7373](http://localhost:7373) dans votre navigateur.
+
+## Demo | Démonstration
+
+https://github.com/celia3evans/qzipText/assets/Demo.webm
