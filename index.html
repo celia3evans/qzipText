@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>qzipText</title>
+  <style>
+    @font-face {
+      font-family: 'Krone';
+      src: url('/assets/CastleOfAvenueDemo-Regular.ttf') format('truetype');
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+      transition: background 0.2s;
+    }
+
+    select {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      padding: 0.4rem 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 20rem;
+      text-align: center;
+    }
+
+    input {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      padding: 0.4rem 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 20rem;
+      text-align: center;
+    }
+
+    #display-wrapper {
+      width: 4in;
+      position: relative;
+      height: 60px;
+    }
+
+    #display {
+      font-family: 'Krone', serif;
+      font-size: 50px;
+      white-space: nowrap;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: center center;
+    }
+  </style>
+</head>
+<body>
+  <select id="role" onchange="applyTheme(this.value)">
+    <option value="bod">BoD | CA</option>
+    <option value="commissioner">Commissioner | Commissaire</option>
+    <option value="am">AM | GA</option>
+  </select>
+  <input type="text" id="input" placeholder="Type something | Écrivez quelque chose…" oninput="update(this.value)">
+  <div id="display-wrapper">
+    <span id="display"></span>
+  </div>
+
+  <script>
+    const maxWidth = 4 * 96;
+    const display = document.getElementById('display');
+
+    const themes = {
+      bod:          { bg: '#4169E1',  text: 'white' },
+      commissioner: { bg: '#000040',  text: 'white' },
+      am:           { bg: '#FFFFF0',  text: 'navy'  },
+    };
+
+    function applyTheme(value) {
+      const { bg, text } = themes[value];
+      document.body.style.background = bg;
+      display.style.color = text;
+    }
+
+    applyTheme('bod');
+
+    function update(text) {
+      display.textContent = text;
+      display.style.transform = 'translateX(-50%)';
+      const natural = display.offsetWidth;
+      if (natural > maxWidth) {
+        display.style.transform = `translateX(-50%) scaleX(${maxWidth / natural})`;
+      }
+    }
+  </script>
+</body>
+</html>
